@@ -1,0 +1,18 @@
+#container{
+    margin:2%;
+    padding:2%;
+    border:1px solid black;
+}
+.loc_box{
+    display:inline-block;
+    border: 2px solid blueviolet;
+    margin:1%;
+    padding:1%;
+    text-align: center;
+    color: darkmagenta;
+}
+.activity{
+    color: rgb(38, 165, 38);
+    border:2px solid purple;
+    overflow: scroll;
+}

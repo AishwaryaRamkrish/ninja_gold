@@ -1,0 +1,35 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ninja Gold</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'ninja_gold_app/css/style.css' %}" />
+    <script src="{% static 'ninja_gold_app/js/script.js' %}"></script>
+</head>
+<body>
+    <div id = "container">
+        <h1>Your Gold: {{gold}}</h1>
+        {% for dict in loc_info %}
+        <div class = "loc_box">
+            <h3>{{dict.name}}</h3>
+
+            <p>(earns {{dict.earn}})</p>
+            <form action = "/process" method ="post">
+                {% csrf_token %}
+                <input type ="hidden" name ="location" value = "{{dict.name}}">
+                <button type = "submit">Find Gold!</button>
+            </form>
+        </div>
+        {% endfor %}
+        <h2>Activities:</h2>
+        <div class ="activity">
+            {% for activity in activities %}
+            <p>{{activity}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
